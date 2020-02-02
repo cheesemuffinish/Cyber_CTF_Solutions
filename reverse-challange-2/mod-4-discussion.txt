@@ -1,0 +1,33 @@
+Interpretation 
+
+What other protocol exchanges do you think might use both symmetric and asymmetric cryptography like the SSL/TLS example? Discuss how that might make use of the advantages provided by each type of cryptography. 
+This assignment is asking us to investigate another protocol that contains both symmetric and asymmetric cryptology and which advantages each contain.
+
+Context
+
+By examining the SSL/TLS example we can conclude the best use cases for symmetric and asymmetric algorithms. For this case study we will investigate how asymmetric and symmetric algorithms play a role in the HTTPS protocol
+
+Case
+
+For this case we will investigate the HTTPS protocol, the difference between the HTTPS and HTTP protocols lay within the layer of SSL/TLS encryption that goes into the HTTPS protocol which secures the data exchange between servers. The SSL layer has two main purposes:
+Verifying that you are talking directly to the server that you think you are talking to
+Ensuring that only the server can read what you send it and only you can read what it sends back
+The trust involved in this protocol must first have an initalization handshake, a certification exchange, and an encrpyted key exchange which utilizes both symmetric and asymmetric algorithms
+Analysis
+
+Once an SSL connection is established between client and host the parties involved need to agree on a cipher suite and which version of SSL the connection will be based on. Once the connection is established the server then prove it identity to the client by giving an SSL certificate which contains sparse information about the owner of the SSL cert and attached to the public key, the client then checks the cert and establish a trusted connection.
+After the certificate exchange is successful the key exchange then happens between the parties using a symmetric algorithm which uses a single key for encrpytion and decryption purposes. The single key is established using a asymmetric encryption algorithm for the servers public and private keys.
+The client then generates a random key which will be used for the main symmetric encrpytion purposes and send the encrpyted key to the server where it will be decrpyted using the servers private key.
+After this exchange is finished, HTTP requests can be securely exchanged between the parties by forming plain text messages, which are encrpyted, and sent.
+
+
+Conclusions
+
+Symmetric algorithms are generally used for key algorithms such as AES which can secure internet transactions by using a public key algorithm for symmetric encryption with secret key exchanges. Symmetric algorithms are also used to send over keys through an insecure medium since there exist a shared public key and individual private keys, this is possible without revealing any sensitive information about either parties private key. 
+Symmetric algorithms are generally more optimal in terms of performance, so many cryptographic operations will be using symmetric algorithms to do any bulk encryption or decryption for confidentiality. Asymmetric algorithms are primarily used to provide protection for the shared secret key. These types of algorithms are generally used for key exchanges and digital signatures. In the example of HTTPS, asymmetric keys are used in the SSL handshake to exchange a further key for both parties to symmetrically encrpyt.
+
+References
+
+https://robertheaton.com/2014/03/27/how-does-https-actually-work/
+
+
